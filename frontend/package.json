@@ -7,10 +7,14 @@
     "cra-template": "1.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-responsive-masonry": "^2.6.0",
     "react-router-dom": "^7.0.2",
     "react-scripts": "5.0.1",
+    "react-slick": "^0.30.2",
     "reactstrap": "^9.2.3",
-    "remixicon": "^4.5.0"
+    "remixicon": "^4.5.0",
+    "slick-carousel": "^1.8.1",
+    "swiper": "^11.1.15"
   },
   "scripts": {
     "start": "react-scripts start",

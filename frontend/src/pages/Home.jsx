@@ -5,9 +5,14 @@ import heroImg from "../assets/images/hero-img01.jpg";
 import heroImg02 from "../assets/images/hero-img02.jpg";
 import heroVideo from "../assets/images/hero-video.mp4";
 import worldImg from "../assets/images/world.png";
+import experienceImg from "../assets/images/experience.png";
 import Subtitle from "../shared/Subtitle";
 import SearchBar from "../shared/SearchBar";
 import ServiceList from "../services/ServiceList";
+import FeaturedTourList from "../components/Featured-tours/FeaturedTourList";
+import MasonryImagesGallery from "../components/Image-gallery/MasonryImagesGallery";
+import Testimonials from "../components/Testimonial/Testimonials";
+import Newsletter from "../shared/Newsletter";
 
 const Home = () => {
   return (
@@ -68,6 +73,87 @@ const Home = () => {
           </div>
         </Container>
       </section>
+
+      <section>
+        <div>
+          <div>
+            <Subtitle subtitle={"Explore"} />
+            <h2 className="featured__tour-title">Our featured tours</h2>
+          </div>
+          <FeaturedTourList />
+        </div>
+      </section>
+
+      <section>
+        <Container className="experienceContainer">
+          <div className="experience-container">
+            <div>
+              <div className="experience__content">
+                <Subtitle subtitle={"Experience"} />
+                <h2>
+                  With all our experience <br /> we will serve you
+                </h2>
+                <p>
+                  Over 15 years of expertise in the industry, ensuring
+                  successful trips and satisfied clients.
+                </p>
+              </div>
+            </div>
+
+            <div className="counter__wrapper">
+              <div className="counter__box">
+                <span>12k+</span>
+                <h6>Successfull trip</h6>
+              </div>
+              <div className="counter__box">
+                <span>2k+</span>
+                <h6>Regular clients</h6>
+              </div>
+              <div className="counter__box">
+                <span>15</span>
+                <h6>Years experience</h6>
+              </div>
+            </div>
+          </div>
+          <div className="experienceImg">
+            <div className="experience__img">
+              <img src={experienceImg} alt="" />
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section>
+        <Container>
+          <div>
+            <div>
+              <Subtitle subtitle={"Gallery"} />
+              <h2 className="gallery__title">
+                Visit our customers tour gallery
+              </h2>
+            </div>
+            <div>
+              <MasonryImagesGallery />
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section>
+        <Container>
+          <div>
+            <div>
+              <Subtitle subtitle={"Fans Love"} />
+              <h2 className="testimonial__title">What our fans say about us</h2>
+            </div>
+            <div>
+              <Testimonials />
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <Newsletter />
     </>
   );
 };

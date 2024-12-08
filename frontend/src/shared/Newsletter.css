@@ -1,0 +1,72 @@
+.newsletter {
+    padding: 50px 0;
+    background-color: #f8f9fa;
+}
+
+.newsletter__content {
+    width: 50%;
+    float: left;
+    padding-right: 20px;
+}
+
+.newsletter__content h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.newsletter__input {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.newsletter__input input {
+    padding: 10px;
+    width: 70%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.newsletter__btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.newsletter__btn:hover {
+    background-color: #0056b3;
+}
+
+.newsletter__img {
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+
+.newsletter__img img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+p {
+    margin-top: 10px;
+}
+
+.newsletterContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.newsletterContainer>div {
+    width: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+}
