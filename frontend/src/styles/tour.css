@@ -1,0 +1,39 @@
+.tour-cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.tour-card-item {
+    box-sizing: border-box;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    /* Sayfa numaralarını ortalar */
+    margin-top: 20px;
+    /* Sayfa numaraları ile tur kartları arasına boşluk ekler */
+    flex-wrap: wrap;
+}
+
+.pagination span {
+    width: 2rem;
+    height: 2rem;
+    padding: 5px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #0056b3;
+    color: var(--heading-color);
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.active__page{
+    background: #0056b3;
+    color: #fff !important;
+    font-weight: 500;
+}

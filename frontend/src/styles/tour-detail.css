@@ -1,0 +1,152 @@
+.tour-detail-section {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+.tour__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tour__img {
+    width: 100%;
+    max-width: 720px;
+    border-radius: .5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tour__info, .tour__reviews {
+    border-radius: .5rem;
+    border: 1px solid rgb(229, 231, 235);
+    padding: 2rem;
+    width: 100%;
+    max-width: 720px;
+    margin-top: 10px;
+}
+
+.tour__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.tour__rating-location {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    margin-bottom: 20px;
+}
+
+.tour__rating {
+    font-size: 1.1rem;
+    margin-right: 20px;
+}
+
+.tour__address {
+    font-size: 1rem;
+    color: #555;
+    display: flex;
+    align-items: center;
+}
+
+.tour__address i {
+    margin-right: 8px;
+}
+
+.tour__extra-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: first baseline;
+    font-size: 1rem;
+}
+
+.tour__extra-details span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 50px;
+}
+
+.tour__extra-details i {
+    color: #555;
+}
+
+.tour__info h5 {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.tour__info p {
+    line-height: 30px;
+    font-size: 1rem;
+    color: black;
+}
+
+.tour__reviews h4 {
+    margin-bottom: 3rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.rating__group {
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+.rating__group span {
+    cursor: pointer;
+    color: #ffdf00;
+}
+
+.rating__group span i{
+    margin-right: 10px;
+}
+
+.review__input {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 2rem;
+    border: 1px solid #2980b9;
+    margin-top: 20px;
+    background-color: #fff;
+}
+
+.review__input input {
+    width: 100%;
+    padding: 0.5rem 0;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.review__input input:focus {
+    outline: none;
+}
+
+.review__input button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.review__input button:hover {
+    background-color: #2980b9;
+}
+
+.review__input button:focus {
+    outline: none;
+}

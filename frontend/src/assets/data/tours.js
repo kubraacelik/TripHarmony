@@ -9,25 +9,26 @@ import tourImg07 from "../images/tour-img07.jpg";
 const tours = [
   {
     id: "01",
-    title: "Westminister Bridge",
+    title: "Westminster Bridge",
     city: "London",
     distance: 300,
     price: 99,
     maxGroupSize: 10,
-    desc: "this is the description",
+    desc: "Explore the iconic Westminster Bridge and enjoy stunning views of the Houses of Parliament and Big Ben.",
     reviews: [
       {
-        name: "jhon doe",
+        name: "John Doe",
         rating: 4.6,
       },
       {
-        name: "jhon doe",
+        name: "John Doe",
         rating: 5,
       },
     ],
     avgRating: 4.5,
     photo: tourImg01,
     featured: true,
+    address: "Westminster Bridge, London, SW1A 2JH, United Kingdom",
   },
   {
     id: "02",
@@ -36,16 +37,17 @@ const tours = [
     distance: 400,
     price: 99,
     maxGroupSize: 8,
-    desc: "this is the description",
+    desc: "Immerse yourself in Bali's unique culture, picturesque landscapes, and pristine beaches.",
     reviews: [
       {
-        name: "jhon doe",
+        name: "John Doe",
         rating: 4.6,
       },
     ],
     avgRating: 4.5,
     photo: tourImg02,
     featured: true,
+    address: "Bali, Indonesia",
   },
   {
     id: "03",
@@ -54,16 +56,17 @@ const tours = [
     distance: 500,
     price: 99,
     maxGroupSize: 8,
-    desc: "this is the description",
+    desc: "Discover the breathtaking Snowy Mountains in Thailand, a perfect spot for adventure and scenic beauty.",
     reviews: [
       {
-        name: "jhon doe",
+        name: "John Doe",
         rating: 4.6,
       },
     ],
     avgRating: 4.5,
     photo: tourImg03,
     featured: true,
+    address: "Snowy Mountains, Chiang Mai, Thailand",
   },
   {
     id: "04",
@@ -72,16 +75,17 @@ const tours = [
     distance: 500,
     price: 99,
     maxGroupSize: 8,
-    desc: "this is the description",
+    desc: "Catch a magnificent sunrise over the stunning landscapes of Krabi, Thailand.",
     reviews: [
       {
-        name: "jhon doe",
+        name: "John Doe",
         rating: 4.6,
       },
     ],
     avgRating: 4.5,
     photo: tourImg04,
     featured: true,
+    address: "Beautiful Sunrise, Krabi, Thailand",
   },
   {
     id: "05",
@@ -90,16 +94,17 @@ const tours = [
     distance: 500,
     price: 99,
     maxGroupSize: 8,
-    desc: "this is the description",
+    desc: "Relax on the pristine beaches of Nusa Pendia in Bali, surrounded by crystal-clear waters and lush greenery.",
     reviews: [
       {
-        name: "jhon doe",
+        name: "John Doe",
         rating: 4.6,
       },
     ],
     avgRating: 4.5,
     photo: tourImg05,
     featured: false,
+    address: "Nusa Pendia, Bali, Indonesia",
   },
   {
     id: "06",
@@ -108,16 +113,17 @@ const tours = [
     distance: 500,
     price: 99,
     maxGroupSize: 8,
-    desc: "this is the description",
+    desc: "Witness the stunning cherry blossoms in full bloom during springtime in Kyoto, Japan.",
     reviews: [
       {
-        name: "jhon doe",
+        name: "John Doe",
         rating: 4.6,
       },
     ],
     avgRating: 4.5,
     photo: tourImg06,
     featured: false,
+    address: "Kyoto, Japan",
   },
   {
     id: "07",
@@ -126,11 +132,12 @@ const tours = [
     distance: 500,
     price: 99,
     maxGroupSize: 8,
-    desc: "this is the description",
+    desc: "Discover the untouched beauty of Holmen Lofoten, a peaceful retreat in the French countryside.",
     reviews: [],
     avgRating: 4.5,
     photo: tourImg07,
     featured: false,
+    address: "Holmen Lofoten, France",
   },
   {
     id: "08",
@@ -139,12 +146,14 @@ const tours = [
     distance: 500,
     price: 99,
     maxGroupSize: 8,
-    desc: "this is the description",
+    desc: "Adventure awaits in the Snowy Mountains of Chiang Mai, offering both tranquility and thrilling hikes.",
     reviews: [],
     avgRating: 4.5,
     photo: tourImg03,
     featured: false,
+    address: "Snowy Mountains, Chiang Mai, Thailand",
   },
 ];
 
 export default tours;
+
