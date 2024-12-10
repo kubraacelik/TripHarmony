@@ -28,7 +28,7 @@ const tours = [
     avgRating: 4.5,
     photo: tourImg01,
     featured: true,
-    address: "Westminster Bridge, London, SW1A 2JH, United Kingdom",
+    address: "Westminster Bridge, London, United Kingdom",
   },
   {
     id: "02",

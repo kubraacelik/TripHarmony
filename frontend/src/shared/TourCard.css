@@ -1,22 +1,14 @@
-.tour__Card-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin: 20px 0;
-}
-
 .tour__Card {
-    flex: 1 1 30%;
-    margin: 10px;
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 380px;
-    display: flex;
-    flex-direction: column;
+    background-color: #fff;
+    height: 100%;
+    position: relative;
 }
 
 .tour__img {
@@ -24,9 +16,8 @@
 }
 
 .tour__img img {
-    border-radius: 8px;
     width: 100%;
-    height: 200px;
+    height: 210px;
     object-fit: cover;
     border-bottom: 1px solid #ddd;
 }
@@ -44,24 +35,44 @@
     z-index: 10;
 }
 
-.card__top,
-.card__bottom {
+.card__top {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 10px;
+    flex-grow: 1;
 }
 
-.card__top {
-    padding: 15px 5px;
+.tour__location,
+.tour__rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.tour__location i,
+.tour__rating i {
+    font-size: 1rem;
 }
 
 .tour__title a {
     text-decoration: none;
     color: #333;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: block;
 }
 
 .tour__title a:hover {
     color: #6CAA1B;
+}
+
+.card__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+    flex-shrink: 0;
 }
 
 .card__bottom h5 {
@@ -88,4 +99,17 @@
 
 .booking__btn:hover {
     background: #5A9015;
+}
+
+.booking__btn a {
+    color: white;
+    text-decoration: none;
+}
+
+.tour__Card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 20px 0;
+    padding: 0 10px;
 }
