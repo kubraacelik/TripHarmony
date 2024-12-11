@@ -1,0 +1,123 @@
+.login__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+  }
+  
+  .login__img {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login__img img {
+    width: 100%;
+    max-width: 600px;
+    object-fit: contain;
+    border-radius: 15px;
+  }
+  
+  .login__form {
+    width: 35%;
+    padding: 40px;
+    border-radius: 16px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .login__form h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0546F3;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .user img {
+    margin-bottom: 20px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-color: #eaf1fb;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login__form .form-group {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .login__form .form-group input {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    color: #495057;
+    border: 1px solid #ced4da;
+    border-radius: 12px;
+    background-color: #f8f9fa;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .login__form .form-group input:focus {
+    border-color: #0546F3;
+    box-shadow: 0 0 10px rgba(5, 70, 243, 0.4);
+    outline: none;
+  }
+  
+  .auth_btn {
+    background-color: #0546F3;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 15px 25px;
+    width: 95%;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .auth_btn:hover {
+    background-color: #043acc;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(4, 58, 204, 0.4);
+  }
+  
+  .login__form p {
+    margin-top: 20px;
+    font-size: .9rem;
+    color: #6c757d;
+  }
+  
+  .login__form p a {
+    color: #0546F3;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 5px;
+  }
+  
+  .login__form p a:hover {
+    text-decoration: underline;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
