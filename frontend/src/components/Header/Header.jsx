@@ -1,9 +1,10 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Container, Row } from "reactstrap";
 import { NavLink, Link } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import "./Header.css";
 
+//Header menüsünde görünecek bağlantılar
 const nav__links = [
   {
     path: "/home",
@@ -20,8 +21,12 @@ const nav__links = [
 ];
 
 const Header = () => {
+  const [menuActive, setMenuActive] = useState(false);
+  
+  //DOM'daki header elemanını izlemek için kullanılıyor.
   const headerRef = useRef(null);
 
+  //Sayfa kaydırıldığında header'ın sticky bir stil almasını sağlar
   const stickyHeaderFunc = () => {
     window.addEventListener("scroll", () => {
       if (
@@ -37,10 +42,13 @@ const Header = () => {
 
   useEffect(() => {
     stickyHeaderFunc();
-
     return window.removeEventListener("scroll", stickyHeaderFunc);
   });
-  
+
+  const toggleMenu = () => {
+    setMenuActive(!menuActive);
+  };
+
   return (
     <header className="header" ref={headerRef}>
       <Container>
@@ -49,7 +57,7 @@ const Header = () => {
             <div className="logo">
               <img src={logo} alt="logo" />
             </div>
-            <div className="navigation">
+            <div className={`navigation ${menuActive ? "active" : ""}`}>
               <ul className="menu">
                 {nav__links.map((item, index) => (
                   <li className="nav__item" key={index}>
@@ -64,8 +72,6 @@ const Header = () => {
                   </li>
                 ))}
               </ul>
-            </div>
-            <div className="nav__right">
               <div className="nav__btns">
                 <button className="btn secondary_btn">
                   <Link to="/login">Login</Link>
@@ -74,10 +80,10 @@ const Header = () => {
                   <Link to="/register">Register</Link>
                 </button>
               </div>
-              <span className="mobile__menu">
-                <i className="ri-menu-5-line"></i>
-              </span>
             </div>
+            <span className="mobile__menu" onClick={toggleMenu}>
+              <i className="fa-solid fa-bars"></i>
+            </span>
           </div>
         </Row>
       </Container>
