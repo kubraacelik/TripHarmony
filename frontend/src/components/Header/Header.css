@@ -137,11 +137,11 @@
     }
 
     .nav__btns {
-        display: none; /* Login ve Register butonları mobilde gizlenebilir */
+        display: none; 
     }
 
     .mobile__menu {
-        display: block; /* Mobil menü simgesi aktif hâle gelir */
+        display: block; 
     }
 }
 
@@ -152,7 +152,7 @@
     }
 
     .navigation {
-        display: none; /* Menü varsayılan olarak gizli */
+        display: none; 
         flex-direction: column;
         gap: 10px;
     }
@@ -167,7 +167,10 @@
     }
 
     .navigation.active {
-        display: flex; /* Menü açılır */
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
     .nav__btns {
