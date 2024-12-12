@@ -1,0 +1,19 @@
+.masonry__img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  @media (max-width: 768px) {
+    .masonry__img {
+      height: 200px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .masonry__img {
+      height: 150px;
+    }
+  }
+  
