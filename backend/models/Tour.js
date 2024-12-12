@@ -34,7 +34,7 @@ const tourSchema = new mongoose.Schema(
       required: true,
     },
     maxGroupSize: {
-      type: String,
+      type: Number,
       required: true,
     },
 
