@@ -3,17 +3,26 @@ import CommonSection from "../shared/CommonSection";
 import "../styles/tour.css";
 import TourCard from "../shared/TourCard";
 import SearchBar from "../shared/SearchBar";
-import tourData from "../assets/data/tours";
 import Newsletter from "../shared/Newsletter";
+import useFetch from "../hooks/useFetch";
+import { BASE_URL } from "../utils/config";
+import { Container } from "reactstrap";
 
 const Tours = () => {
   const [pageCount, setPageCount] = useState(0); // Sayfa sayısı
   const [page, setPage] = useState(0); // Şu anki sayfa
 
+  const {
+    data: tours,
+    loading,
+    error,
+  } = useFetch(`${BASE_URL}/tours?page=${page}`);
+  const { data: tourCount } = useFetch(`${BASE_URL}/tours/search/getCountTour`);
+
   useEffect(() => {
-    const pages = Math.ceil(tourData.length / 4); // Burada tourData uzunluğuna göre sayfa sayısını hesaplıyoruz
+    const pages = Math.ceil(tourCount / 2); // Burada tourData uzunluğuna göre sayfa sayısını hesaplıyoruz
     setPageCount(pages);
-  }, [page]);
+  }, [page, tourCount]);
 
   return (
     <>
@@ -24,24 +33,32 @@ const Tours = () => {
         </div>
       </section>
       <section>
-        <div className="tour-cards-container">
-          {tourData?.map((tour, index) => (
-            <div className="tour-card-item" key={index}>
-              <TourCard tour={tour} />
-            </div>
-          ))}
-        </div>
-        <div className="pagination">
-          {[...Array(pageCount).keys()].map((number) => (
-            <span
-              key={number}
-              className={page === number ? "active__page" : ""}
-              onClick={() => setPage(number)}
-            >
-              {number + 1}
-            </span>
-          ))}
-        </div>
+        <Container>
+          {loading && <h4>Loading.......</h4>}
+          {error && <h4>{error}</h4>}
+          {!loading && !error && (
+            <>
+              <div className="tour__Card-container">
+                {tours?.map((tour) => (
+                  <div key={tour._id}>
+                    <TourCard tour={tour} />
+                  </div>
+                ))}
+              </div>
+              <div className="pagination">
+                {[...Array(pageCount).keys()].map((number) => (
+                  <span
+                    key={number}
+                    className={page === number ? "active__page" : ""}
+                    onClick={() => setPage(number)}
+                  >
+                    {number + 1}
+                  </span>
+                ))}
+              </div>
+            </>
+          )}
+        </Container>
       </section>
       <Newsletter />
     </>

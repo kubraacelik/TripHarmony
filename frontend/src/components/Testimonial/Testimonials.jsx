@@ -1,24 +1,17 @@
 import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
-import ava01 from "../../assets/images/ava-1.jpg";
-import ava02 from "../../assets/images/ava-2.jpg";
-import ava03 from "../../assets/images/ava-3.jpg";
-import ava04 from "../../assets/images/ava-4.jpg";
-import ava05 from "../../assets/images/ava-5.jpg";
-import ava06 from "../../assets/images/ava-6.jpg";
+import Slider from "react-slick"; // Slider'ı buraya import edin
+import "slick-carousel/slick/slick.css"; // Slick CSS dosyasını import edin
+import "slick-carousel/slick/slick-theme.css"; // Slick tema CSS dosyasını import edin
 
 const Testimonials = () => {
   const settings = {
     infinite: true,
-    centerMode: false, // Her sayfada 3 yorum gösterdiğimiz için center mode'yi kapatabiliriz
+    centerMode: false,
     dots: true,
     arrows: true,
-    slidesToShow: 3, // Aynı anda 3 yorum göster
-    slidesToScroll: 1, // Bir defada bir slayt kaydır
-    spaceBetween: 20, // Slaytlar arasındaki boşluk
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    spaceBetween: 20,
   };
 
   return (
@@ -31,7 +24,7 @@ const Testimonials = () => {
             support is outstanding.
           </p>
           <div className="testimonial-author">
-            <img src={ava01} className="author-img" alt="John Doe" />
+            <img src="/images/ava-1.jpg" className="author-img" alt="John Doe" />
             <div className="author-info">
               <h5 className="author-name">Harry Smith</h5>
               <p className="author-role">Customer</p>
@@ -46,7 +39,7 @@ const Testimonials = () => {
             this product!
           </p>
           <div className="testimonial-author">
-            <img src={ava02} className="author-img" alt="Jane Smith" />
+            <img src="/images/ava-2.jpg" className="author-img" alt="Jane Smith" />
             <div className="author-info">
               <h5 className="author-name">Samantha O'Kelly</h5>
               <p className="author-role">Customer</p>
@@ -61,7 +54,7 @@ const Testimonials = () => {
             personal projects.
           </p>
           <div className="testimonial-author">
-            <img src={ava03} className="author-img" alt="Sara Lee" />
+            <img src="/images/ava-3.jpg" className="author-img" alt="Sara Lee" />
             <div className="author-info">
               <h5 className="author-name">Mia Evans</h5>
               <p className="author-role">Customer</p>
@@ -76,7 +69,7 @@ const Testimonials = () => {
             recommend it!"
           </p>
           <div className="testimonial-author">
-            <img src={ava04} className="author-img" alt="Emily Watson" />
+            <img src="/images/ava-4.jpg" className="author-img" alt="Emily Watson" />
             <div className="author-info">
               <h5 className="author-name">Barbara Miller</h5>
               <span className="author-role">Entrepreneur</span>
@@ -91,7 +84,7 @@ const Testimonials = () => {
             personal and work-related tasks, and it never lets me down. 
           </p>
           <div className="testimonial-author">
-            <img src={ava05} className="author-img" alt="Emily Watson" />
+            <img src="/images/ava-5.jpg" className="author-img" alt="Emily Watson" />
             <div className="author-info">
               <h5 className="author-name">Jessica Rodriguez</h5>
               <span className="author-role">Entrepreneur</span>
@@ -106,7 +99,7 @@ const Testimonials = () => {
             in one place. It has definitely improved my productivity!
           </p>
           <div className="testimonial-author">
-            <img src={ava06} className="author-img" alt="John Smith" />
+            <img src="/images/ava-6.jpg" className="author-img" alt="John Smith" />
             <div className="author-info">
               <h5 className="author-name">Reece Garcia</h5>
               <span className="author-role">Designer</span>

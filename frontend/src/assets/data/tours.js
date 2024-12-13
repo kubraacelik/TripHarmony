@@ -1,11 +1,3 @@
-import tourImg01 from "../images/tour-img01.jpg";
-import tourImg02 from "../images/tour-img02.jpg";
-import tourImg03 from "../images/tour-img03.jpg";
-import tourImg04 from "../images/tour-img04.jpg";
-import tourImg05 from "../images/tour-img05.jpg";
-import tourImg06 from "../images/tour-img06.jpg";
-import tourImg07 from "../images/tour-img07.jpg";
-
 const tours = [
   {
     id: "01",
@@ -26,7 +18,7 @@ const tours = [
       },
     ],
     avgRating: 4.5,
-    photo: tourImg01,
+    photo:"/images/tour-img01.jpg",
     featured: true,
     address: "Westminster Bridge, London, United Kingdom",
   },
@@ -45,7 +37,7 @@ const tours = [
       },
     ],
     avgRating: 4.5,
-    photo: tourImg02,
+    photo: "/images/tour-img02.jpg",
     featured: true,
     address: "Bali, Indonesia",
   },
@@ -64,7 +56,7 @@ const tours = [
       },
     ],
     avgRating: 4.5,
-    photo: tourImg03,
+    photo: "/images/tour-img03.jpg",
     featured: true,
     address: "Snowy Mountains, Chiang Mai, Thailand",
   },
@@ -83,7 +75,7 @@ const tours = [
       },
     ],
     avgRating: 4.5,
-    photo: tourImg04,
+    photo: "/images/tour-img04.jpg",
     featured: true,
     address: "Beautiful Sunrise, Krabi, Thailand",
   },
@@ -102,7 +94,7 @@ const tours = [
       },
     ],
     avgRating: 4.5,
-    photo: tourImg05,
+    photo: "/images/tour-img05.jpg",
     featured: false,
     address: "Nusa Pendia, Bali, Indonesia",
   },
@@ -121,7 +113,7 @@ const tours = [
       },
     ],
     avgRating: 4.5,
-    photo: tourImg06,
+    photo: "/images/tour-img06.jpg",
     featured: false,
     address: "Kyoto, Japan",
   },
@@ -135,7 +127,7 @@ const tours = [
     desc: "Discover the untouched beauty of Holmen Lofoten, a peaceful retreat in the French countryside.",
     reviews: [],
     avgRating: 4.5,
-    photo: tourImg07,
+    photo: "/images/tour-img07.jpg",
     featured: false,
     address: "Holmen Lofoten, France",
   },
@@ -149,11 +141,24 @@ const tours = [
     desc: "Adventure awaits in the Snowy Mountains of Chiang Mai, offering both tranquility and thrilling hikes.",
     reviews: [],
     avgRating: 4.5,
-    photo: tourImg03,
+    photo: "/images/tour-img03.jpg",
     featured: false,
     address: "Snowy Mountains, Chiang Mai, Thailand",
+  },
+  {
+    id: "09",
+    title: "Sunset Safari, Kenya",
+    city: "Nairobi",
+    distance: 1200,
+    price: 150,
+    maxGroupSize: 12,
+    desc: "Experience the breathtaking sunset over the savannah and witness the majestic wildlife up close.",
+    reviews: [],
+    avgRating: 4.8,
+    photo: "/images/tour-img10.jpg",
+    featured: true,
+    address: "Masai Mara National Reserve, Kenya",
   },
 ];
 
 export default tours;
-

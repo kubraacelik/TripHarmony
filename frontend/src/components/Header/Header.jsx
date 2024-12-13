@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Container, Row } from "reactstrap";
 import { NavLink, Link } from "react-router-dom";
-import logo from "../../assets/images/logo.png";
 import "./Header.css";
 
 //Header menüsünde görünecek bağlantılar
@@ -43,7 +42,7 @@ const Header = () => {
   useEffect(() => {
     stickyHeaderFunc();
     return window.removeEventListener("scroll", stickyHeaderFunc);
-  });
+  },[]);
 
   const toggleMenu = () => {
     setMenuActive(!menuActive);
@@ -55,7 +54,7 @@ const Header = () => {
         <Row>
           <div className="nav__wrapper">
             <div className="logo">
-              <img src={logo} alt="logo" />
+              <img src="/images/logo.png" alt="logo" />
             </div>
             <div className={`navigation ${menuActive ? "active" : ""}`}>
               <ul className="menu">

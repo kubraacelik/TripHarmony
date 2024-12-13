@@ -10,8 +10,6 @@ import {
   Input,
 } from "reactstrap";
 import { Link } from "react-router-dom";
-import registerImg from "../assets/images/register.jpg";
-import userIcon from "../assets/images/user.jpg";
 
 const Register = () => {
   const [credentials, setCredentials] = useState({
@@ -35,12 +33,12 @@ const Register = () => {
           <Col lg="8" className="m-auto">
             <div className="login__container d-flex justify-content-between">
               <div className="login__img">
-                <img src={registerImg} alt="" />
+                <img src="/images/register.jpg" alt="" />
               </div>
 
               <div className="login__form">
                 <div className="user">
-                  <img src={userIcon} alt="" />
+                  <img src="/images/user.jpg" alt="" />
                 </div>
                 <h2>Register</h2>
 

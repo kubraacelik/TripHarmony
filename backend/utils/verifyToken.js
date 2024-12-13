@@ -45,6 +45,7 @@ export const verifyUser = (req, res, next) => {
 export const verifyAdmin = (req, res, next) => {
   //Token doğrulandıktan sonra, bir callback fonksiyonu çalıştırılır.
   verifyToken(req, res, next, () => {
+    console.log(req.user);
     //Rol Kontrolü
     if (req.user.role == "admin") {
       next();

@@ -1,7 +1,9 @@
 .tour-cards-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr); /* Her satırda 4 öğe olacak şekilde düzenleme */
+    gap: 20px; /* Elemanlar arasındaki boşluk */
+    margin: 20px 0;
+    padding: 0 10px;
 }
 
 .tour-card-item {

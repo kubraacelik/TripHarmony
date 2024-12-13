@@ -2,9 +2,8 @@ import Tour from "../models/Tour.js";
 
 //!create new tour
 export const createTour = async (req, res) => {
-  const newTour = new Tour(req.body);
-
   try {
+    const newTour = new Tour(req.body);
     const savedTour = await newTour.save();
 
     res.status(200).json({
@@ -13,11 +12,15 @@ export const createTour = async (req, res) => {
       data: savedTour,
     });
   } catch (error) {
-    res
-      .status(500)
-      .json({ success: false, message: "Failed to create. Try again" });
+    console.error("Hata Detayı:", error); // Hata detaylarını console'a yazdır
+    res.status(500).json({
+      success: false,
+      message: "Failed to create. Try again",
+      error: error.message, // Hata mesajını döndür
+    });
   }
 };
+
 
 //!update tour
 export const updateTour = async (req, res) => {

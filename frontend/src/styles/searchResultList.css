@@ -1,0 +1,13 @@
+.searchResult-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: first baseline;
+    gap: 20px;
+  }
+  
+  .searchResult-list-item {
+    width: calc(33.33% - 20px); 
+    margin-bottom: 20px;
+  }
+
+  

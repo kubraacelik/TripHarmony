@@ -4,7 +4,6 @@ import { Col, Container, Form, ListGroup, Row } from "reactstrap";
 import { useParams } from "react-router-dom";
 import tourData from "../assets/data/tours";
 import calculateAvgRating from "../utils/avgRating";
-import avatar from "../assets/images/avatar.jpg";
 import Booking from "../components/Booking/Booking";
 import Newsletter from "../shared/Newsletter";
 
@@ -127,7 +126,7 @@ const TourDetail = () => {
                   <ListGroup className="user__reviews">
                     {reviews?.map((review) => (
                       <div className="review__item">
-                        <img src={avatar} alt="" />
+                        <img src="/images/avatar.jpg" alt="" />
 
                         <div className="review__details">
                           <div className="review_detail">

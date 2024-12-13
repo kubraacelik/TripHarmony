@@ -2,7 +2,6 @@ import React from "react";
 import "./Footer.css";
 import { Container, ListGroup, ListGroupItem } from "reactstrap";
 import { Link } from "react-router-dom";
-import logo from "../../assets/images/logo.png";
 
 const quick__links = [
   { path: "/home", display: "Home" },
@@ -26,7 +25,7 @@ const Footer = () => {
           <div className="footer__row">
             <div className="footer__link-column">
               <div className="logo">
-                <img src={logo} alt="Logo" />
+                <img src="/images/logo.png" alt="Logo" />
                 <p>Explore the world with us.</p>
                 <div className="social__links">
                   <span>

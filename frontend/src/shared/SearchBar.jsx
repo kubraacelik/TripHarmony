@@ -1,29 +1,47 @@
-import { React, useState, useRef } from "react";
+import { useState, useRef } from "react";
 import "./SearchBar.css";
 import { Col } from "reactstrap";
+import { BASE_URL } from "../utils/config";
+import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const locationRef = useRef("");
   const distanceRef = useRef(0);
   const maxGroupSizeRef = useRef(0);
+  const navigate = useNavigate();
 
-  const searchHandler = () => {
+  const searchHandler = async () => {
     const location = locationRef.current.value;
     const distance = distanceRef.current.value;
     const maxGroupSize = maxGroupSizeRef.current.value;
 
+    // Form alanlarının kontrolü
     if (location === "" || distance === "" || maxGroupSize === "") {
       setErrorMessage("All fields are required!");
+      return; // Boş alan varsa işlemi sonlandır
+    }
 
-      // 5 saniye sonra hata mesajını kaldır
-      setTimeout(() => {
-        setErrorMessage("");
-      }, 5000);
+    // Hata mesajını temizle
+    setErrorMessage("");
 
+    // API'den verileri al
+    const res = await fetch(
+      `${BASE_URL}/tours/search/getTourBySearch?city=${location}&distance=${distance}&maxGroupSize=${maxGroupSize}`
+    );
+
+    if (!res.ok) {
+      alert("Something went wrong");
       return;
     }
 
+    const result = await res.json();
+
+    // API'den alınan sonuçla navigasyona yönlendirme
+    navigate(
+      `/tours/search?city=${location}&distance=${distance}&maxGroupSize=${maxGroupSize}`,
+      { state: result.data }
+    );
   };
 
   return (
@@ -65,11 +83,7 @@ const SearchBar = () => {
               <input type="number" placeholder="0" ref={maxGroupSizeRef} />
             </div>
           </div>
-          <span
-            className="search__icon"
-            type="submit"
-            onClick={searchHandler}
-          >
+          <span className="search__icon" type="submit" onClick={searchHandler}>
             <i className="fa-solid fa-magnifying-glass"></i>
           </span>
         </div>

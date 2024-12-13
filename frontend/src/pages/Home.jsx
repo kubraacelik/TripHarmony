@@ -1,11 +1,6 @@
 import React from "react";
 import "../styles/home.css";
 import { Container } from "reactstrap";
-import heroImg from "../assets/images/hero-img01.jpg";
-import heroImg02 from "../assets/images/hero-img02.jpg";
-import heroVideo from "../assets/images/hero-video.mp4";
-import worldImg from "../assets/images/world.png";
-import experienceImg from "../assets/images/experience.png";
 import Subtitle from "../shared/Subtitle";
 import SearchBar from "../shared/SearchBar";
 import ServiceList from "../services/ServiceList";
@@ -26,7 +21,7 @@ const Home = () => {
                 <div className="hero__subtitle-desc">
                   <Subtitle subtitle={"Know Before You Go"} />
                 </div>
-                <img src={worldImg} alt="world icon" />
+                <img src="/images/world.png" alt="world icon" />
               </div>
               <h1>
                 Traveling opens the door to creating{" "}
@@ -44,13 +39,13 @@ const Home = () => {
             {/* Hero Images */}
             <div className="hero__images">
               <div className="hero__img-box">
-                <img src={heroImg} alt="" />
+                <img src="/images/hero-img01.jpg" alt="" />
               </div>
               <div className="hero__img-box">
-                <video src={heroVideo} alt="" controls />
+                <video src="/images/hero-video.mp4" alt="" controls />
               </div>
               <div className="hero__img-box">
-                <img src={heroImg02} alt="" />
+                <img src="/images/hero-img02.jpg" alt="" />
               </div>
             </div>
           </div>
@@ -117,7 +112,7 @@ const Home = () => {
           </div>
           <div className="experienceImg">
             <div className="experience__img">
-              <img src={experienceImg} alt="" />
+              <img src="/images/experience.png" alt="" />
             </div>
           </div>
         </Container>

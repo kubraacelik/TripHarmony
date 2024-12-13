@@ -1,7 +1,6 @@
 import React from "react";
 import "./Newsletter.css";
 import { Container } from "reactstrap";
-import maleTourist from "../assets/images/male-tourist.png";
 
 const Newsletter = () => {
   return (
@@ -23,7 +22,7 @@ const Newsletter = () => {
           </div>
           <div>
             <div className="newsletter__img">
-              <img src={maleTourist} alt="Male Tourist" />
+              <img src="/images/male-tourist.png" alt="Male Tourist" />
             </div>
           </div>
         </div>
