@@ -37,7 +37,10 @@ const tourSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-
+    avgRating: {
+      type: Number,
+      required: true,
+    },
     //Tura ait kullanıcı yorumlarını depolar.
     reviews: [
       {
