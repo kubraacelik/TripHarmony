@@ -18,7 +18,7 @@ const tours = [
       },
     ],
     avgRating: 4.5,
-    photo:"/images/tour-img01.jpg",
+    photo: "/images/tour-img01.jpg",
     featured: true,
     address: "Westminster Bridge, London, United Kingdom",
   },
@@ -158,6 +158,48 @@ const tours = [
     photo: "/images/tour-img10.jpg",
     featured: true,
     address: "Masai Mara National Reserve, Kenya",
+  },
+  {
+    id: "10",
+    title: "Adventure in the Amazon",
+    city: "Manaus",
+    distance: 800,
+    price: 150,
+    maxGroupSize: 10,
+    desc: "Explore the lush greenery and exotic wildlife of the Amazon rainforest.",
+    reviews: [
+      {
+        name: "Jane Smith",
+        rating: 4.8,
+      },
+      {
+        name: "Carlos Ramirez",
+        rating: 4.7,
+      },
+    ],
+    avgRating: 4.75,
+    photo: "/images/tour-img08.jpg",
+    featured: true,
+    address: "Amazon Rainforest, Manaus, Brazil",
+  },
+  {
+    id: "11",
+    title: "Northern Lights Experience",
+    city: "Reykjavik",
+    distance: 1200,
+    price: 200,
+    maxGroupSize: 6,
+    desc: "Witness the magical Aurora Borealis in the stunning Icelandic skies.",
+    reviews: [
+      {
+        name: "Emma Brown",
+        rating: 5.0,
+      },
+    ],
+    avgRating: 5.0,
+    photo: "/images/tour-img09.jpg",
+    featured: true,
+    address: "Reykjavik, Iceland",
   },
 ];
 

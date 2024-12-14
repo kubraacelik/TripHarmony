@@ -1,7 +1,9 @@
 .tour-cards-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Her satırda 4 öğe olacak şekilde düzenleme */
-    gap: 20px; /* Elemanlar arasındaki boşluk */
+    grid-template-columns: repeat(4, 1fr);
+    /* Her satırda 4 öğe olacak şekilde düzenleme */
+    gap: 20px;
+    /* Elemanlar arasındaki boşluk */
     margin: 20px 0;
     padding: 0 10px;
 }
@@ -34,8 +36,44 @@
     margin-right: 10px;
 }
 
-.active__page{
+.active__page {
     background: #0056b3;
     color: #fff !important;
     font-weight: 500;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    font-size: 18px;
+    color: #555;
+}
+
+.loading::after {
+    content: "";
+    width: 24px;
+    height: 24px;
+    border: 4px solid #ddd;
+    border-top: 4px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.error {
+    color: #ff4d4d;
+    background-color: #ffe6e6;
+    border: 1px solid #ffcccc;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 16px;
 }

@@ -17,12 +17,16 @@ const Tours = () => {
     loading,
     error,
   } = useFetch(`${BASE_URL}/tours?page=${page}`);
-  const { data: tourCount } = useFetch(`${BASE_URL}/tours/search/getCountTour`);
+
+  const { data: tourCount } = useFetch(
+    `${BASE_URL}/tours/search/getCountsTour`
+  );
 
   useEffect(() => {
-    const pages = Math.ceil(tourCount / 2); // Burada tourData uzunluğuna göre sayfa sayısını hesaplıyoruz
+    const pages = Math.ceil(tourCount / 8); // Burada tourData uzunluğuna göre sayfa sayısını hesaplıyoruz
     setPageCount(pages);
-  }, [page, tourCount]);
+    window.scrollTo(0, 0);
+  }, [page, tourCount, tours]);
 
   return (
     <>
@@ -34,8 +38,8 @@ const Tours = () => {
       </section>
       <section>
         <Container>
-          {loading && <h4>Loading.......</h4>}
-          {error && <h4>{error}</h4>}
+          {loading && <div className="loading">Loading...</div>}
+          {error && <div className="error">An error occurred: {error}</div>}
           {!loading && !error && (
             <>
               <div className="tour__Card-container">

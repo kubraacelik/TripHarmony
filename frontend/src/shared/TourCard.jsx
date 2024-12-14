@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import calculateAvgRating from "../utils/avgRating";
 
 const TourCard = ({ tour }) => {
-  const { _id, title, city, photo, price, featured, reviews } = tour;
-
+  const { _id, title, city, photo, price, featured, reviews = [] } = tour;
+  
   const { totalRating, avgRating } = calculateAvgRating(reviews);
 
   return (
@@ -20,16 +20,12 @@ const TourCard = ({ tour }) => {
         <CardBody className="cardBody">
           <div className="card__top d-flex align-items-center justify-content-between">
             <span className="tour__location d-flex align-items-center gap-1">
-              <i class="fa-solid fa-location-dot"></i> {city}
+              <i className="fa-solid fa-location-dot"></i> {city}
             </span>
             <span className="tour__rating d-flex align-items-center gap-1">
-              <i class="fa-solid fa-star"></i>{" "}
-              {avgRating === 0 ? null : avgRating}
-              {totalRating === 0 ? (
-                "Not rated"
-              ) : (
-                <span>({reviews.length})</span>
-              )}
+              <i className="fa-solid fa-star"></i>{" "}
+              {avgRating && avgRating > 0 ? avgRating : "Not rated"}
+              {reviews.length > 0 && <span>({reviews.length})</span>}
             </span>
           </div>
 
@@ -51,5 +47,6 @@ const TourCard = ({ tour }) => {
     </div>
   );
 };
+
 
 export default TourCard;

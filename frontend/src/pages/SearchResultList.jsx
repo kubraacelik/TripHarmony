@@ -7,8 +7,10 @@ import "../styles/searchResultList.css";
 import Newsletter from "../shared/Newsletter";
 
 const SearchResultList = () => {
+  //önceki bir sayfadan (örneğin bir arama formundan) gelen verileri taşımak için kullanılan bir yöntem
   const location = useLocation();
 
+  //data değişkeni, URL'den gelen location.state verilerini tutar
   const [data] = useState(location.state);
 
   return (
@@ -17,7 +19,7 @@ const SearchResultList = () => {
       <section>
         <Container>
           <div className="searchResult-list">
-            {data.length == 0 ? (
+            {data.length === 0 ? (
               <h4 className="text-center">No Tour Found</h4>
             ) : (
               data?.map((tour) => (

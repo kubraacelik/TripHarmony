@@ -11,11 +11,10 @@ const FeaturedTourList = () => {
     error,
   } = useFetch(`${BASE_URL}/tours/search/getFeaturedTour`);
 
-  console.log(featuredTours);
   return (
     <>
-      {loading && <h4>Loading..................</h4>}
-      {error && <h4>{error}</h4>}
+      {loading && <div className="loading">Loading...</div>}
+      {error && <div className="error">An error occurred: {error}</div>}
       <div className="tour__Card-container">
         {!loading &&
           !error &&
