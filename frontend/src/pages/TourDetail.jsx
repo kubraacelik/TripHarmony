@@ -1,12 +1,13 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import "../styles/tour-detail.css";
-import { Container, Form, ListGroup, Row } from "reactstrap";
+import { Container, Form, ListGroup } from "reactstrap";
 import { useParams } from "react-router-dom";
 import calculateAvgRating from "../utils/avgRating";
 import Booking from "../components/Booking/Booking";
 import Newsletter from "../shared/Newsletter";
 import useFetch from "../hooks/useFetch";
 import { BASE_URL } from "./../utils/config";
+import { AuthContext } from "./../context/AuthContext";
 
 const TourDetail = () => {
   const { id } = useParams();
@@ -14,6 +15,8 @@ const TourDetail = () => {
   const reviewMsgRef = useRef("");
 
   const [tourRating, setTourRating] = useState(null);
+
+  const { user } = useContext(AuthContext);
 
   const { data: tour, loading, error } = useFetch(`${BASE_URL}/tours/${id}`);
 
@@ -33,21 +36,50 @@ const TourDetail = () => {
 
   const options = { day: "numeric", month: "long", year: "numeric" };
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     const reviewText = reviewMsgRef.current.value;
+
+    try {
+      if (!user || user === undefined || user === null) {
+        alert("Please Sign In");
+      }
+
+      const reviewObj = {
+        username: user?.username,
+        reviewText,
+        rating: tourRating,
+      };
+
+      const res = await fetch(`${BASE_URL}/review/${id}`, {
+        method: "post",
+        headers: {
+          "content-type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(reviewObj),
+      });
+
+      const result = await res.json();
+      if (!res.ok) {
+        return alert(result.message);
+      }
+      alert(result.message);
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  },[tour]);
+  }, [tour]);
 
   return (
     <>
       <section className="tour-detail-section">
         <Container>
-        {loading && <div className="loading">Loading...</div>}
-        {error && <div className="error">An error occurred: {error}</div>}
+          {loading && <div className="loading">Loading...</div>}
+          {error && <div className="error">An error occurred: {error}</div>}
           {!loading && !error && (
             <div className="tourDetail-section">
               <div className="tour__content">
@@ -142,17 +174,18 @@ const TourDetail = () => {
                           <div className="review__details">
                             <div className="review_detail">
                               <div className="d-flex align-items-center justify-content-between">
-                                <h5 className="review__name">muhib</h5>
+                                <h5 className="review__name">
+                                  {review.username}
+                                </h5>
                                 <p className="review__date">
-                                  {new Date("10-12-2024").toLocaleDateString(
-                                    "en-US",
-                                    options
-                                  )}
+                                  {new Date(
+                                    review.createdAt
+                                  ).toLocaleDateString("en-US", options)}
                                 </p>
                               </div>
 
                               <div className="review__rating d-flex align-items-center">
-                                <span>5 </span>
+                                <span>{review.rating}</span>
                                 <i
                                   className="fa-solid fa-star"
                                   style={{ color: "#ffdf00" }}
@@ -160,7 +193,9 @@ const TourDetail = () => {
                               </div>
                             </div>
 
-                            <h6 className="review__comment">Amazing tour</h6>
+                            <h6 className="review__comment">
+                              {review.reviewText}
+                            </h6>
                           </div>
                         </div>
                       ))}

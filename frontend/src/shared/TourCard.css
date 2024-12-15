@@ -122,9 +122,9 @@
     font-size: 18px;
     color: #007bff;
     font-weight: bold;
-  }
-  
-  .loading::after {
+}
+
+.loading::after {
     content: "";
     width: 30px;
     height: 30px;
@@ -133,15 +133,15 @@
     border-radius: 50%;
     margin-left: 10px;
     animation: spin 1s linear infinite;
-  }
-  
-  @keyframes spin {
+}
+
+@keyframes spin {
     to {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
-  
-  .error {
+}
+
+.error {
     color: #d9534f;
     background-color: #f2dede;
     border: 1px solid #ebccd1;
@@ -151,5 +151,28 @@
     margin: 20px auto;
     font-size: 16px;
     width: fit-content;
-  }
-  
+}
+
+@media (max-width: 1024px) {
+    .tour__Card-container {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+@media (max-width: 768px) {
+    .tour__Card-container {
+        grid-template-columns: 1fr;
+    }
+    .tour__img img {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tour__Card-container {
+        grid-template-columns: 1fr;
+    }
+    .tour__img img {
+        height: 160px;
+    }
+}
