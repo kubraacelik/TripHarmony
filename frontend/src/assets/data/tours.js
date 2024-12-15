@@ -167,16 +167,7 @@ const tours = [
     price: 150,
     maxGroupSize: 10,
     desc: "Explore the lush greenery and exotic wildlife of the Amazon rainforest.",
-    reviews: [
-      {
-        name: "Jane Smith",
-        rating: 4.8,
-      },
-      {
-        name: "Carlos Ramirez",
-        rating: 4.7,
-      },
-    ],
+    reviews: [],
     avgRating: 4.75,
     photo: "/images/tour-img08.jpg",
     featured: true,
@@ -190,12 +181,7 @@ const tours = [
     price: 200,
     maxGroupSize: 6,
     desc: "Witness the magical Aurora Borealis in the stunning Icelandic skies.",
-    reviews: [
-      {
-        name: "Emma Brown",
-        rating: 5.0,
-      },
-    ],
+    reviews: [],
     avgRating: 5.0,
     photo: "/images/tour-img09.jpg",
     featured: true,

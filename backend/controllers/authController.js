@@ -2,14 +2,13 @@ import User from "../models/User.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-//!user registration
+//! Kullanıcı Kayıt
 export const register = async (req, res) => {
   try {
-    //Şifreyi Hash'leme
-    const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(req.body.password, salt);
+    const salt = await bcrypt.genSalt(10); 
+    const hash = await bcrypt.hash(req.body.password, salt); 
 
-    //Yeni Kullanıcı Oluşturma
+    // Yeni Kullanıcı Oluşturma
     const newUser = new User({
       username: req.body.username,
       email: req.body.email,
@@ -17,59 +16,59 @@ export const register = async (req, res) => {
       photo: req.body.photo,
     });
 
-    //Veritabanına Kaydetme
+    // Veritabanına Kaydetme
     await newUser.save();
 
     res.status(200).json({ success: true, message: "Successfully created" });
   } catch (error) {
-    res
-      .status(500)
-      .json({ success: false, message: "Failed to create. Try again!" });
-  }
+    console.error("Error during registration:", error);
+    res.status(500).json({ success: false, message: "Failed to create. Try again!" });
+  }  
 };
 
-//!user login
+//! Kullanıcı Giriş
 export const login = async (req, res) => {
-  //E-posta ile Kullanıcıyı Bulma
   const email = req.body.email;
+
   try {
+    // E-posta ile Kullanıcıyı Bulma
     const user = await User.findOne({ email });
 
-    //Kullanıcı Bulunmazsa Yanıt
+    // Kullanıcı Bulunmazsa Yanıt
     if (!user) {
       return res
         .status(404)
         .json({ success: false, message: "User not found" });
     }
 
-    //Şifre Doğrulama
+    // Şifre Doğrulama
     const checkCorrectPassword = await bcrypt.compare(
       req.body.password,
       user.password
     );
 
-    //Yanlış Şifre Durumunda Yanıt
+    // Yanlış Şifre Durumunda Yanıt
     if (!checkCorrectPassword) {
       return res
         .status(401)
         .json({ success: false, message: "Incorrect email or password" });
     }
 
-    //Bu yöntem, şifreyi ve rolü istemciye göndermemek amacıyla kullanılır
+    // Kullanıcı Bilgilerini Filtreleme (Şifre ve Rol Dahil Edilmez)
     const { password, role, ...rest } = user._doc;
 
-    //JWT Oluşturma
+    // JWT Oluşturma
     const token = jwt.sign(
       { id: user._id, role: user.role },
-      process.env.JWT_SECRET_KEY, //Bu token, process.env.JWT_SECRET_KEY ile şifrelenir
-      { expiresIn: "15d" } //Token'ın geçerlilik süresi
+      process.env.JWT_SECRET_KEY, // Şifreleme anahtarı
+      { expiresIn: "15d" } // Token'ın geçerlilik süresi
     );
 
-    //Token'ı Cookie Olarak Gönderme
+    // Token'ı Cookie Olarak Gönderme
     res
       .cookie("accessToken", token, {
-        httpOnly: true,
-        expires: token.expiresIn,
+        httpOnly: true, // Tarayıcıdan erişimi sınırlandırır
+        expires: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000), // 15 gün
       })
       .status(200)
       .json({

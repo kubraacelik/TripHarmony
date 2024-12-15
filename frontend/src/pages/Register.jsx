@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "../styles/login.css";
 import {
   Container,
@@ -9,7 +9,9 @@ import {
   Button,
   Input,
 } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "./../context/AuthContext.js";
+import { BASE_URL } from "./../utils/config";
 
 const Register = () => {
   const [credentials, setCredentials] = useState({
@@ -18,12 +20,37 @@ const Register = () => {
     password: undefined,
   });
 
+  //Kullanıcı kaydı başarılı olduğunda (REGISTER_SUCCESS), context'e bu durumu bildirmek için kullanılır
+  const { dispatch } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
-  const handleClick = (e) => {
+  const handleClick = async (e) => {
     e.preventDefault();
+
+    try {
+      const res = await fetch(`${BASE_URL}/auth/register`, {
+        method: "post",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(credentials), //Kullanıcı bilgileri JSON formatına dönüştürülerek gönderiliyor.
+      });
+
+      const result = await res.json();
+
+      if (!res.ok) alert(result.message);
+
+      dispatch({ type: "REGISTER_SUCCESS" });
+
+      navigate("/login");
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   return (
