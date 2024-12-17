@@ -10,15 +10,12 @@ import { BASE_URL } from "./../utils/config";
 import { AuthContext } from "./../context/AuthContext";
 
 const TourDetail = () => {
-  const { id } = useParams();
+  const { id } = useParams(); // URL'deki tur id'sini alır
+  const reviewMsgRef = useRef(""); // Yorum giriş alanını referansla kontrol eder
+  const [tourRating, setTourRating] = useState(null); // Kullanıcının vereceği puan 
+  const { user } = useContext(AuthContext); // Kullanıcının kimlik bilgilerini alır
 
-  const reviewMsgRef = useRef("");
-
-  const [tourRating, setTourRating] = useState(null);
-
-  const { user } = useContext(AuthContext);
-
-  const { data: tour, loading, error } = useFetch(`${BASE_URL}/tours/${id}`);
+  const { data: tour, loading, error } = useFetch(`${BASE_URL}/tours/${id}`); // Tur detaylarını API'den çeker
 
   const {
     photo,
