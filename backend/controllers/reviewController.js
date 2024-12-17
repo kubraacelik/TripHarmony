@@ -10,7 +10,7 @@ export const createReview = async (req, res) => {
     const savedReview = await newReview.save();
 
     await Tour.findByIdAndUpdate(tourId, {
-      $push: { reviews: savedReview._id },
+      $push: { reviews: savedReview._id }, //Bir dizinin sonuna yeni bir eleman ekler.
     });
 
     res

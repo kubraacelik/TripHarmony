@@ -5,8 +5,8 @@ import jwt from "jsonwebtoken";
 //! Kullanıcı Kayıt
 export const register = async (req, res) => {
   try {
-    const salt = await bcrypt.genSalt(10); 
-    const hash = await bcrypt.hash(req.body.password, salt); 
+    const salt = await bcrypt.genSalt(10); // Salt (karıştırma değeri) oluşturuluyor
+    const hash = await bcrypt.hash(req.body.password, salt); // Şifre, salt ile birlikte hash'leniyor 
 
     // Yeni Kullanıcı Oluşturma
     const newUser = new User({
@@ -41,7 +41,7 @@ export const login = async (req, res) => {
         .json({ success: false, message: "User not found" });
     }
 
-    // Şifre Doğrulama
+    // Girilen şifreyi, veritabanındaki şifre ile karşılaştırıyoruz
     const checkCorrectPassword = await bcrypt.compare(
       req.body.password,
       user.password
@@ -50,11 +50,12 @@ export const login = async (req, res) => {
     // Yanlış Şifre Durumunda Yanıt
     if (!checkCorrectPassword) {
       return res
-        .status(401)
+        .status(401) //yetkiniz yok hatası döner
         .json({ success: false, message: "Incorrect email or password" });
     }
 
-    // Kullanıcı Bilgilerini Filtreleme (Şifre ve Rol Dahil Edilmez)
+    //user._doc nesnesinde bulunan password ve role özelliklerini ayrı değişkenlere atıyoruz ve 
+    //geriye kalan tüm özellikleri (bunlar password ve role dışında kalan özellikler) rest adıyla bir nesnede topluyoruz.
     const { password, role, ...rest } = user._doc;
 
     // JWT Oluşturma

@@ -13,6 +13,8 @@ import { verifyAdmin } from "../utils/verifyToken.js";
 
 const router = express.Router();
 
+//*app.use("/api/v1/tours", tourRoute); olduğu için örneğin getTourBySearch'te /api/v1/tours/search/getTourBySearch olursa çalışır
+
 //create new tour
 router.post("/", verifyAdmin ,createTour);
 

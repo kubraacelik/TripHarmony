@@ -79,7 +79,6 @@ export const getSingleUser = async (req, res) => {
 export const getAllUser = async (req, res) => {
 
   try {
-    //her saydaya 8 adet düşsün
     const users = await User.find({})
 
     res.status(200).json({
