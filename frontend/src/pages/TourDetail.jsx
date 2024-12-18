@@ -42,6 +42,7 @@ const TourDetail = () => {
         alert("Please Sign In");
       }
 
+      //Kullanıcının yorum ve puan bilgilerini bir arada tutar ve API’ye gönderilecek olan veriyi temsil eder.
       const reviewObj = {
         username: user?.username,
         reviewText,

@@ -6,7 +6,7 @@ import { createContext, useEffect, useReducer } from "react";
 const initial_state = {
   user:
     localStorage.getItem("user") !== undefined
-      ? JSON.parse(localStorage.getItem("user"))
+      ? JSON.parse(localStorage.getItem("user")) //Eğer localStorage'da bir user kaydı varsa, bu kullanıcı bilgileri başlangıç durumu olarak atanır.
       : null,
   loading: false,
   error: null,
@@ -21,7 +21,7 @@ const AuthReducer = (state, action) => {
     case "LOGIN_START":
       return {
         user: null,
-        loading: true, 
+        loading: true,
         error: null,
       };
     case "LOGIN_SUCCESS":
@@ -57,6 +57,7 @@ const AuthReducer = (state, action) => {
 const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AuthReducer, initial_state);
 
+  //state.user her güncellendiğinde, kullanıcı bilgileri localStorage'a kaydedilir.
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(state.user));
   }, [state.user]);
@@ -64,10 +65,10 @@ const AuthContextProvider = ({ children }) => {
   return (
     <AuthContext.Provider
       value={{
-        user: state.user,
-        loading: state.loading,
-        error: state.error,
-        dispatch,
+        user: state.user, // Kullanıcı bilgisi
+        loading: state.loading, // Yükleme durumu
+        error: state.error, // Hata mesajı
+        dispatch, // State'i güncellemek için kullanılan fonksiyon
       }}
     >
       {children}
