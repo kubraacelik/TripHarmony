@@ -15,7 +15,10 @@ const Home = () => {
       <section>
         <Container>
           {/* Main Content and Images */}
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <div
+            className="home-hero"
+            style={{ display: "flex", justifyContent: "space-between" }}
+          >
             <div className="hero__content">
               <div className="hero__subtitle d-flex align-items-center">
                 <div className="hero__subtitle-desc">

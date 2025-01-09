@@ -70,3 +70,36 @@ p {
     padding: 20px;
     box-sizing: border-box;
 }
+
+@media (max-width: 1024px) {
+    .newsletter__content,
+    .newsletter__img {
+        width: 100%;
+        float: none; /* Floats kaldırılıyor */
+        padding: 0; /* Paddingi sıfırlıyoruz */
+        text-align: center; /* İçeriği ortalıyoruz */
+    }
+
+    .newsletter__input input {
+        width: 80%; /* Giriş alanını biraz daha genişletiyoruz */
+    }
+
+    .newsletter__btn {
+        width: 80%; /* Buton genişliği de girilen input ile uyumlu olacak şekilde ayarlanıyor */
+        margin-top: 10px; /* Butona biraz üstten boşluk ekliyoruz */
+    }
+
+    .newsletterContainer>div {
+        width: 100%; /* Her bir öğe, ekranın tamamını kapsayacak şekilde genişliyor */
+    }
+}
+
+@media (max-width: 768px) {
+    .newsletter__input input {
+        width: 100%; /* Mobilde input alanı tam genişlikte */
+    }
+
+    .newsletter__btn {
+        width: 100%; /* Buton da tam genişlikte olacak şekilde ayarlanıyor */
+    }
+}

@@ -57,7 +57,7 @@ const Footer = () => {
               <ListGroup className="footer__quick-links">
                 {quick__links.map((item, index) => (
                   <ListGroupItem key={index} className="ps-0 bo">
-                    <Link to={item.path}>{item.display}</Link>
+                    <Link className="footer-display" to={item.path}>{item.display}</Link>
                   </ListGroupItem>
                 ))}
               </ListGroup>
@@ -76,8 +76,8 @@ const Footer = () => {
 
             <div className="footer__link-column">
               <h5 className="footer__link-title">Contact</h5>
-              <ListGroup className="footer__quick-links">
-                <ListGroupItem className="footerQuickLink">
+              <div className="footer__quick-links">
+                <div className="footerQuickLink">
                   <h6>
                     <span>
                       <i className="fa-solid fa-location-dot"></i>
@@ -85,17 +85,18 @@ const Footer = () => {
                     <span style={{ marginLeft: "10px" }}>Address:</span>
                   </h6>
                   <p>Turkey</p>
-                </ListGroupItem>
-                <ListGroupItem className="footerQuickLink">
+                </div>
+
+                <div className="footerQuickLink">
                   <h6>
                     <span>
                       <i className="fa-solid fa-square-envelope"></i>
                     </span>
                     <span style={{ marginLeft: "10px" }}>Email:</span>
                   </h6>
-                  <p>kkbra.celik92@gmail.com</p>
-                </ListGroupItem>
-                <ListGroupItem className="footerQuickLink">
+                  <a href="#" style={{color:"red"}}>TripHarmony</a>
+                </div>
+                <div className="footerQuickLink">
                   <h6>
                     <span>
                       <i className="fa-solid fa-phone"></i>
@@ -103,8 +104,8 @@ const Footer = () => {
                     <span style={{ marginLeft: "10px" }}>Phone:</span>
                   </h6>
                   <p>+0123456789</p>
-                </ListGroupItem>
-              </ListGroup>
+                </div>
+              </div>
             </div>
           </div>
           <div className="copyright-container">
